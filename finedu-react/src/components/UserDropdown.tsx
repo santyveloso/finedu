@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import AISettings from './AISettings';
 
 interface UserDropdownProps {
   isDarkMode: boolean;
@@ -7,6 +8,7 @@ interface UserDropdownProps {
 
 const UserDropdown: React.FC<UserDropdownProps> = ({ isDarkMode, onToggleDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAISettingsOpen, setIsAISettingsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
@@ -84,6 +86,15 @@ const UserDropdown: React.FC<UserDropdownProps> = ({ isDarkMode, onToggleDarkMod
             <span>Notificações</span>
           </button>
 
+          {/* AI Settings */}
+          <button 
+            onClick={() => setIsAISettingsOpen(true)}
+            className="w-full flex items-center px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-150"
+          >
+            <i className="fas fa-robot text-primary-500 mr-3"></i>
+            <span>Configurações AI</span>
+          </button>
+
           {/* Help */}
           <button className="w-full flex items-center px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-150">
             <i className="fas fa-question-circle text-primary-500 mr-3"></i>
@@ -99,6 +110,12 @@ const UserDropdown: React.FC<UserDropdownProps> = ({ isDarkMode, onToggleDarkMod
           </button>
         </div>
       </div>
+
+      {/* AI Settings Modal */}
+      <AISettings 
+        isOpen={isAISettingsOpen} 
+        onClose={() => setIsAISettingsOpen(false)} 
+      />
     </div>
   );
 };
