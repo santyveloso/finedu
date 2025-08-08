@@ -8,14 +8,34 @@ body {
   background-color: #f8fafc;
 }
 
+.dark body {
+  background-color: #0f172a; /* slate-900 */
+}
+
 .card {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 184, 166, 0.04) 0%, rgba(255, 255, 255, 1) 18%);
+  box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.08);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+  border: 1px solid rgba(20, 184, 166, 0.08);
+}
+
+/* Dark mode treatment for card to avoid light gradients */
+.dark .card {
+  background: linear-gradient(180deg, rgba(20, 184, 166, 0.06) 0%, rgba(31, 41, 55, 1) 22%);
+  border-color: rgba(45, 212, 191, 0.12);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.5);
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.12);
+  border-color: rgba(20, 184, 166, 0.25);
+}
+
+.dark .card:hover {
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.6);
+  border-color: rgba(45, 212, 191, 0.35);
 }
 
 .progress-bar {
@@ -37,4 +57,19 @@ body {
 .contract-card:hover {
   border-color: #14b8a6;
   transform: scale(1.02);
+}
+
+/* Utility: gradient text using primary color */
+.gradient-text {
+  background-image: linear-gradient(90deg, #14b8a6, #2dd4bf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Utility: subtle glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: saturate(140%) blur(6px);
+  -webkit-backdrop-filter: saturate(140%) blur(6px);
 }

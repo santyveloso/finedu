@@ -1,0 +1,29 @@
+/* Add or adjust styles for the landing page hero and button */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optional: style for the landing button */
+.landing-hero-button {
+  font-size: 1.5rem;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.landing-hero-button:hover {
+  background: #0056b3;
+}

@@ -90,7 +90,7 @@ const AIAssistant: React.FC = () => {
   };
 
   return (
-    <div className="card bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+    <div className="card bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 min-h-[460px] flex flex-col">
       <div className="flex items-center mb-4">
         <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
           <i className="fas fa-robot text-primary-600"></i>
@@ -99,7 +99,7 @@ const AIAssistant: React.FC = () => {
       </div>
       
       {/* Chat Messages */}
-      <div ref={chatContainerRef} className="h-64 overflow-y-auto mb-4 space-y-3">
+      <div ref={chatContainerRef} className="flex-1 overflow-y-auto mb-4 space-y-3">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -143,7 +143,7 @@ const AIAssistant: React.FC = () => {
 
       {/* Quick Suggestions */}
       {messages.length === 1 && (
-        <div className="mb-4">
+        <div className="mb-3">
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">💡 Perguntas populares:</p>
           <div className="flex flex-wrap gap-2">
             {['Calcular salário líquido', 'Como funciona o IRS?', 'Quais os prazos importantes?'].map((suggestion) => (
@@ -160,7 +160,7 @@ const AIAssistant: React.FC = () => {
       )}
 
       {/* Input Form */}
-      <form onSubmit={handleSubmit} className="flex">
+      <form onSubmit={handleSubmit} className="flex mt-auto">
         <input 
           type="text" 
           value={inputValue}
